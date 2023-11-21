@@ -26,15 +26,42 @@ if(playGame){
 
 function validateGuess(guess){
    // 
-   //if()
+   if(isNaN(guess)){
+    alert('Please enter a valid number')
+  } else if(guess < 1){
+    alert('Please enter a number greater than 1')
+} else if(guess > 100){
+    alert('Please enter a number less than 100')
+} else {
+    prevGuess.push(guess)
+    if (numGuess ===  11){
+        displayGuess(guess)
+        displayMessage(`Game Over. Random number was ${random_number}`)
+        endGame()
+    } else {
+        displayGuess(guess)
+        checkGuess(guess)
+    }
+}
 }
 
 function checkGuess(guess){
-//
+   if(guess === random_number){
+    displayMessage('You guess it right')
+    endGame()   
+} else if(guess < random_number){
+    displayMessage("Number is TOO low")
+
+} else if(guess > random_number){
+    displayMessage("Number is TOO high")
+
+}
+
 }
 
 function displayGuess(guess){
-
+ userInput.value = ''
+ guessSlot.innerHTML = 
 }
 
 function displayMessage(message){
