@@ -61,7 +61,7 @@ function checkGuess(guess){
 
 function displayGuess(guess){
  userInput.value = ''
- guessSlot.innerHTML += `${guess}`
+ guessSlot.innerHTML += `${guess} ,`
  numGuess++;
  remaining.innerHTML = `${11 - numGuess}`
 }
@@ -72,7 +72,11 @@ function displayMessage(message){
 }
 
 function endGame(){
-    //
+    userInput.value = ''
+    userInput.setAttribute('disabled', '')
+    p.classList.add('button')
+    p.innerHTML = `<h2 id="newGame">Start New Game</h2>`;
+    startOver.appendChild(p)
 }
 
 function newGame(){
